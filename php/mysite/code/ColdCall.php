@@ -7,7 +7,7 @@
 	#/This task checks twitter ever hour for the latest updates
 
 
-class ColdCall extends CliController {
+class ColdCall extends BuildTask {
 
     /**
      * cold call number
@@ -23,11 +23,10 @@ class ColdCall extends CliController {
      *
      * @var boolean
      */
-    protected $isEnabled = true;
+    protected $enabled = true;
 
 
-    function process() {
-    if(Director::is_cli()){
+    function run() {
         list($usec, $sec) = explode(' ', microtime());
         $script_start = (float) $sec + (float) $usec;
 
@@ -46,6 +45,5 @@ class ColdCall extends CliController {
         $script_end = (float) $sec + (float) $usec;
         $elapsed_time = round($script_end - $script_start, 5);
         printf('Process took '.$elapsed_time.PHP_EOL);
-     }
     }
 }
