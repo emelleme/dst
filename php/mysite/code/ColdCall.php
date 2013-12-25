@@ -7,7 +7,7 @@
 	#/This task checks twitter ever hour for the latest updates
 
 
-class ColdCall extends Controller {
+class ColdCall extends CliController {
 
     /**
      * cold call number
@@ -17,8 +17,16 @@ class ColdCall extends Controller {
      */
     protected $toCall = false;
 
+    /**
+     * cold call number
+     * cronjobs.
+     *
+     * @var boolean
+     */
+    protected $isEnabled = true;
 
-    function run() {
+
+    function process() {
     if(Director::is_cli()){
         list($usec, $sec) = explode(' ', microtime());
         $script_start = (float) $sec + (float) $usec;
