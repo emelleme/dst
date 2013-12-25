@@ -35,7 +35,7 @@ class ColdCall extends Controller {
                 $this->toCall = $request->getVar('dial');
         }
         if($this->toCall){
-            printf('Initiating Call to '.$this->toCall);
+            printf('Initiating Call to '.$this->toCall.PHP_EOL);
             // This task initiates a cold call to the number passed by variable
             $t = new Services_Twilio($_ENV['TWILIO_SID'],$_ENV['TWILIO_TOKEN']);
             $tcall = $t->account->calls->create(
@@ -46,7 +46,7 @@ class ColdCall extends Controller {
             'http://twimlets.com/voicemail?Email=lloyd%40emelle.me&Message=Wake%20up%20Max%20Glass!&Transcribe=true&'
             );
         }else{
-            printf('Please enter a phone number');
+            printf('Please enter a phone number.'.PHP_EOL);
         }
         
         
