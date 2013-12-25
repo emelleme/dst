@@ -7,7 +7,7 @@
 	#/This task checks twitter ever hour for the latest updates
 
 
-class ColdCall extends BuildTask {
+class ColdCall extends Controller {
 
     /**
      * cold call number
