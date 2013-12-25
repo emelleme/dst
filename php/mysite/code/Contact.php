@@ -12,6 +12,8 @@ class Contact extends DataObject{
 	);
 
 	private static $defaults = array(
+		'OutboundAttempts' => 0,
+		'InboundAttempts' => 0
 	);
 
 	private static $has_one = array(

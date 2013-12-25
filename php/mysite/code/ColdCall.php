@@ -33,6 +33,14 @@ class ColdCall extends Controller {
                 $this->toCall = false;
         } else {    //verbose logging is the default, unless we specify otherwise
                 $this->toCall = $request->getVar('dial');
+                $num = Contact::get()->filter(array('PhoneNumber'=>$this->toCall))->First();
+                if(!$num){
+                    $num = new Contact();
+                    $num->PhoneNumber = $this->toCall;
+                    $num->Address = ($request->getVar('address') !== 0) ? $request->getVar('address');
+                    $num->ParcelId = ($request->getVar('parcel') !== 0) ? $request->getVar('parcel');
+                    $num->write();
+                }
         }
         if($this->toCall){
             printf('Initiating Call to '.$this->toCall.PHP_EOL);
@@ -46,6 +54,8 @@ class ColdCall extends Controller {
             'http://twimlets.com/echo?Twiml=%3CResponse%3E%3CPlay%3Ehttp://live.phillyopen.org/MerryChristmas.wav%3C/Play%3E%3C%2FResponse%3E',
             array('Record'=>true)
             );
+            $num->OutboundAttempts = $num->OutboundAttempts+1;
+            $num->write();
         }else{
             printf('Please enter a phone number.'.PHP_EOL);
         }
