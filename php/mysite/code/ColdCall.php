@@ -37,8 +37,8 @@ class ColdCall extends Controller {
                 if(!$num){
                     $num = new Contact();
                     $num->PhoneNumber = $this->toCall;
-                    $num->Address = ($request->getVar('address') !== 0) ? $request->getVar('address');
-                    $num->ParcelId = ($request->getVar('parcel') !== 0) ? $request->getVar('parcel');
+                    $num->Address = ($request->getVar('address') === 0) ? $num->Address : $request->getVar('address');
+                    $num->ParcelId = ($request->getVar('parcel') === 0) ? $num->ParcelId : $request->getVar('parcel');
                     $num->write();
                 }
         }
