@@ -3,15 +3,21 @@
 global $project;
 $project = 'mysite';
 
-global $databaseConfig;
-$databaseConfig = array(
-        "type" => 'MySQLDatabase',
-        "server" => '127.2.188.130',
-        "username" => $_ENV['OPENSHIFT_MYSQL_DB_HOST'],
-        "password" => 'bc68E-QSE8Fd',
-        "database" => 'parcels',
-        "port" => $_ENV['OPENSHIFT_MYSQL_DB_PORT']
-);
+global $database;
+$database = 'parcel';
 
+// Use _ss_environment.php file for configuration
+require_once("conf/ConfigureFromEnv.php");
+
+MySQLDatabase::set_connection_charset('utf8');
+
+// Set the current theme. More themes can be downloaded from
+// http://www.silverstripe.org/themes/
+Director::set_environment_type("dev");
+//SSViewer::setOption('rewriteHashlinks', false);
+//Security::setDefaultAdmin('admin','sw0rdfish');
 // Set the site locale
+//SiteConfig::add_extension('SiteConfigExtension');
 i18n::set_locale('en_US');
+//SS_Log::add_writer(new SS_LogEmailWriter('admin@phillypolice.com'), SS_Log::ERR);
+//SS_Log::add_writer(new SS_LogEmailWriter('admin@phillypolice.com'), SS_Log::WARN, '<=');
