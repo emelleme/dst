@@ -5,7 +5,7 @@ class Contact extends DataObject{
 		'Address' => 'Varchar',
 		'City' => 'Varchar',
 		'ParcelId' => 'Varchar',
-		'PhoneNumber' => '',
+		'PhoneNumber' => 'Varchar',
 		'PhoneType' => 'Varchar',
 		'OutboundAttempts' => 'Int',
 		'InboundAttempts' => 'Int'
