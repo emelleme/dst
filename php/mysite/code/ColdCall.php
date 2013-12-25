@@ -7,7 +7,7 @@
 	#/This task checks twitter ever hour for the latest updates
 
 
-class ColdCall extends BuildTask {
+class ColdCall extends Controller {
 
     /**
      * cold call number
@@ -26,7 +26,7 @@ class ColdCall extends BuildTask {
     protected $enabled = true;
 
 
-    function run() {
+    function index() {
         list($usec, $sec) = explode(' ', microtime());
         $script_start = (float) $sec + (float) $usec;
 
