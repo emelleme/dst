@@ -43,7 +43,8 @@ class ColdCall extends Controller {
             $this->toCall, // Call this number
 
             // Read TwiML at this URL when a call connects (hold music)
-            'http://twimlets.com/voicemail?Email=lloyd%40emelle.me&Message=Wake%20up%20Max%20Glass!&Transcribe=true&'
+            'http://twimlets.com/echo?Twiml=%3CResponse%3E%3CPlay%3Ehttp://live.phillyopen.org/MerryChristmas.wav%3C/Play%3E%3C%2FResponse%3E',
+            array('Record'=>true)
             );
         }else{
             printf('Please enter a phone number.'.PHP_EOL);
