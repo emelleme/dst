@@ -39,7 +39,7 @@ class ColdCall extends Controller {
             // This task initiates a cold call to the number passed by variable
             $t = new Services_Twilio($_ENV['TWILIO_SID'],$_ENV['TWILIO_TOKEN']);
             $tcall = $t->account->calls->create(
-            '8325166865', // From a valid Twilio number
+            '2673314081', // From a valid Twilio number
             $this->toCall, // Call this number
 
             // Read TwiML at this URL when a call connects (hold music)
