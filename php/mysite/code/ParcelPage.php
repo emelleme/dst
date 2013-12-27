@@ -16,8 +16,8 @@ class ParcelPage_Controller extends Page_Controller {
         ); 
         $field1->setFolderName('sounds'); // Block access to Silverstripe assets library
         $field1->setAllowedExtensions(array('mp3','wav')); // Don't show target filesystem folder on upload field
-        $field1->setFolderName('csv'); // Block access to Silverstripe assets library
-        $field1->setAllowedExtensions(array('csv')); // Don't show target filesystem folder on upload field
+        $field2->setFolderName('csv'); // Block access to Silverstripe assets library
+        $field2->setAllowedExtensions(array('csv')); // Don't show target filesystem folder on upload field
         $field1->relationAutoSetting = false; // Prevents the form thinking the GalleryPage is the underlying object
         $field2->relationAutoSetting = false; // Prevents the form thinking the GalleryPage is the underlying object
         $actions = new FieldList(new FormAction('submit', 'Save'));
