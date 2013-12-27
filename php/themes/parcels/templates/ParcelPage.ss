@@ -34,7 +34,6 @@ Change it, enhance it and most importantly enjoy it!
 	<div class="inner typography line">
 		$Layout
 		$SoundForm
-		$ParcelsForm
 	</div>
 </div>
 <% include Footer %>
