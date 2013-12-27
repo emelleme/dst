@@ -17,9 +17,20 @@ class ParcelPage_Controller extends Page_Controller {
     {
         $g = CallDetails::get()->First();
         $cd = ($g) ? $g : false;
+        $d = new DataList();
+        for ($i=0; $i < 4; $i++) { 
+            $o = Injector::inst()->get('DataObject');
+            $o->Title = 'Test';
+            $d->add($o);
+        }
         if($cd){
-            $gridField = new GridField('pages', 'All pages', SiteTree::get()); 
-            return new Form($this, "AllParcels", new FieldList($gridField), new FieldList());
+            $gridField = new GridField('pages', 'All pages', $d); 
+            $dataColumns = $gridField->getConfig()->getComponentByType('GridFieldDataColumns');
+            $dataColumns->setDisplayFields(array(
+                'Title' => 'Title',
+                'ID'=> 'ID'
+            ));
+            return new Form($this, "AllParcels", new FieldList($gridField), GridFieldConfig_Base::create());
         }else{
             'Upload files below.';
         }
