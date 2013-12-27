@@ -17,7 +17,7 @@ class ParcelPage_Controller extends Page_Controller {
     {
         $g = CallDetails::get()->First();
         $cd = ($g) ? $g : false;
-        $d = new DataList();
+        $d = new ArrayList();
         for ($i=0; $i < 4; $i++) { 
             $o = Injector::inst()->get('DataObject');
             $o->Title = 'Test';
@@ -30,7 +30,7 @@ class ParcelPage_Controller extends Page_Controller {
                 'Title' => 'Title',
                 'ID'=> 'ID'
             ));
-            return new Form($this, "AllParcels", new FieldList($gridField), GridFieldConfig_Base::create());
+            return new Form($this, "AllParcels", new FieldList($gridField), new FieldList());
         }else{
             'Upload files below.';
         }
