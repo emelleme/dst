@@ -20,7 +20,7 @@ class ParcelPage_Controller extends Page_Controller {
         $field2->setAllowedExtensions(array('csv')); // Don't show target filesystem folder on upload field
         $field1->relationAutoSetting = false; // Prevents the form thinking the GalleryPage is the underlying object
         $field2->relationAutoSetting = false; // Prevents the form thinking the GalleryPage is the underlying object
-        $actions = new FieldList(FormAction::create("addService")->setTitle("Add"));
+        $actions = new FieldList(FormAction::create("submit")->setTitle("Save"));
         return new Form($this, 'SoundForm', $fields, $actions, null);
     }
 
