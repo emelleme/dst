@@ -5,8 +5,25 @@ class ParcelPage extends Page {
 }
 class ParcelPage_Controller extends Page_Controller {
     private static $allowed_actions = array (
-        'SoundForm',
+        'SoundForm','index','AllParcels'
     );
+
+    public function index(SS_HTTPRequest $request){
+        $this->Content = $this->AllParcels();
+        return $this->render();
+    }
+
+    public function AllParcels()
+    {
+        $g = CallDetails::get()->First();
+        $cd = ($g) ? $g : false;
+        if($cd){
+            $gridField = new GridField('pages', 'All pages', SiteTree::get()); 
+            return new Form($this, "AllParcels", new FieldList($gridField), new FieldList());
+        }else{
+            'Upload files below.';
+        }
+    }
     public function SoundForm() {
         $fields = new FieldList(
             $field1 = new UploadField('SoundClip', 'Upload SoundClip (minimum 15 sec; must be mp3)'),
@@ -34,8 +51,8 @@ class ParcelPage_Controller extends Page_Controller {
           if(is_file($file))
             unlink($file); // delete file
         }*/
-
-        $gallery = new CallDetails();
+        $g = CallDetails::get()->First();
+        $gallery = ($g) ? $g : new CallDetails();
         $form->saveInto($gallery);
         $gallery->write();
         Controller::curr()->redirect('index');
