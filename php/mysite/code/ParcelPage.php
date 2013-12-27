@@ -1,6 +1,8 @@
 <?php
 
-class ParcelPage extends Page {}
+class ParcelPage extends Page {
+
+}
 class ParcelPage_Controller extends Page_Controller {
     private static $allowed_actions = array (
         'submitSound'
@@ -19,8 +21,8 @@ class ParcelPage_Controller extends Page_Controller {
  
     public function submitSound($data, Form $form) {
         // Remove files
-        $f = Folder::findOrMake(ASSETS_DIR . '/sounds');
-        var_dump($f->getAbsoluteURL());
+        //$f = Folder::find_or_make('/sounds');
+        //var_dump();
         /*$files = glob(); // get all file names
         foreach($files as $file){ // iterate files
           if(is_file($file))
@@ -30,5 +32,6 @@ class ParcelPage_Controller extends Page_Controller {
         $form->saveInto($gallery);
         $gallery->write();
         return $this;*/
+        return $this;
     }
 }
