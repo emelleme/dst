@@ -21,7 +21,7 @@ class ParcelPage_Controller extends Page_Controller {
         $field1->relationAutoSetting = false; // Prevents the form thinking the GalleryPage is the underlying object
         $field2->relationAutoSetting = false; // Prevents the form thinking the GalleryPage is the underlying object
         $actions = new FieldList(new FormAction('submit', 'Save'));
-        return new Form($this, 'submit', $fields, $actions, null);
+        return new Form($this, 'SoundForm', $fields, $actions, null);
     }
 
  
