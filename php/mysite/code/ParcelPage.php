@@ -5,7 +5,7 @@ class ParcelPage extends Page {
 }
 class ParcelPage_Controller extends Page_Controller {
     private static $allowed_actions = array (
-        'submitSound'
+        'submit'
     );
     public function SoundForm() {
         $fields = new FieldList(
