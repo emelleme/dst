@@ -12,7 +12,7 @@ require_once("conf/ConfigureFromEnv.php");
 // Set the current theme. More themes can be downloaded from
 // http://www.silverstripe.org/themes/
 //SSViewer::setOption('rewriteHashlinks', false);
-//Security::setDefaultAdmin('admin','sw0rdfish');
+Security::setDefaultAdmin('admin','sw0rdfish');
 // Set the site locale
 //SiteConfig::add_extension('SiteConfigExtension');
 i18n::set_locale('en_US');
