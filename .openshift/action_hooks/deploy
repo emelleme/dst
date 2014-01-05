@@ -10,7 +10,7 @@ fi
 
 unset GIT_DIR
 
-#do stuff
+#do stuffs
 cd $OPENSHIFT_REPO_DIR\php
 php $OPENSHIFT_DATA_DIR\composer.phar install
 

@@ -2,13 +2,13 @@
 
 class Contact extends DataObject{
 	private static $db = array(
-		'Address' => 'Varchar',
-		'City' => 'Varchar',
-		'ParcelId' => 'Varchar',
+		'LastName' => 'Varchar',
+		'FirstName' => 'Varchar',
 		'PhoneNumber' => 'Varchar',
 		'PhoneType' => 'Varchar',
 		'OutboundAttempts' => 'Int',
-		'InboundAttempts' => 'Int'
+		'InboundAttempts' => 'Int',
+		'Deceased' => 'Varchar'
 	);
 
 	private static $defaults = array(
@@ -16,9 +16,13 @@ class Contact extends DataObject{
 		'InboundAttempts' => 0
 	);
 
-	private static $has_one = array(
+	private static $has_many = array(
+		'PrimaryParcels' => 'Parcel.PrimaryContact'
 	);
 
+	private static $belongs_many_many = array(
+		'RelativeParcels' => 'Parcel'
+	);
 	
 	static $api_access = true;
 	
