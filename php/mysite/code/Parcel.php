@@ -1,6 +1,6 @@
 <?php
 
-/* Parce Data Partially Based on PHLAPI: http://phlapi.com/licenseapi.html#histories */
+/* Parcel Data Partially Based on PHLAPI: http://phlapi.com/licenseapi.html#histories */
 
 class Parcel extends DataObject {
    private static $db = array(
@@ -20,12 +20,14 @@ class Parcel extends DataObject {
       'Ward' => 'Varchar',
       'YearsDelinquent' => 'Varchar',
       'TotalDelinquency' => 'Varchar',
-      'Sale' => 'Varchar'
+      'Sale' => 'Varchar',
+
 
 
    );
    private static $has_one = array(
       'PrimaryContact' => 'Contact',
+      'TaxData' => 'TaxData',
    );
 
    private static $many_many = array(

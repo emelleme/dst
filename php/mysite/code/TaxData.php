@@ -2,9 +2,9 @@
 
 class TaxData extends DataObject{
 	private static $db = array(
-		'LastName' => 'Varchar',
-		'FirstName' => 'Varchar',
-	);
+		'YearsDelinquent' => 'Varchar',  //this is the number of years the property has been tax delinquent
+		'TotalTaxDelinquency' => 'Varchar', //this is the total dollar amount of the taxes in arrears
+	); 
 
 	private static $defaults = array(
 	);
